@@ -22,6 +22,7 @@ Plug 'cohama/lexima.vim'
 
 " python補完
 Plug 'davidhalter/jedi-vim', {'for': 'python'}   " pythonファイルを編集するときだけ起動
+Plug 'Vimjas/vim-python-pep8-indent'
 
 " Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -86,6 +87,16 @@ inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
+" insert mode jj bind esc
+inoremap <silent> jj <ESC>
+" inoremap <expr> % Lt_Percent_Completion()
+" function Lt_Percent_Completion()
+"   if matchstr(getline('.'), '.', col('.') -1 ) == ">"
+" 		return "\%\%\<Left>"
+" 	else
+" 		return "\%"
+" 	end
+" endf
 
 " Rsense用の設定
 if !exists('g:neocomplcache_omni_patterns')
@@ -172,9 +183,11 @@ augroup fileTypeIndent
     autocmd BufNewFile,BufRead *.erb setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.vue setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.css setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter * if argc() == 1 && !isdirectory(argv()[0]) && !exists("s:std_in") | NERDTree | wincmd p | endif
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
