@@ -176,6 +176,8 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 endif
 let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 
+" insert mode jj bind esc
+inoremap <silent> jj <ESC>
 
 """""""""""""""""""""""""
 syntax on
