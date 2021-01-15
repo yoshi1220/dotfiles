@@ -67,7 +67,8 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 " 1文字目の入力から補完のポップアップを表示
 let g:neocomplete#auto_completion_start_length = 1
 " Ctrl+Space で 補完ON
-inoremap <expr><C-Space> pumvisible() ? "\<down>" : neocomplete#start_manual_complete()
+" inoremap <expr><C-Space> pumvisible() ? "\<down>" : neocomplete#start_manual_complete()
+inoremap <expr><C-Space> pumvisible() ? "\<C-n>" : "\<C-Space>"
 
 
 " Define dictionary.
