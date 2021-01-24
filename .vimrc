@@ -54,6 +54,9 @@ Plug 'tpope/vim-commentary'
 " html, erbのインデント調整用
 Plug 'othree/html5.vim'
 
+" indent
+Plug 'Yggdroot/indentLine'
+
 call plug#end()
 """"""""""""""""""""""""""""""
 " Disable AutoComplPop.
@@ -176,6 +179,8 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 endif
 let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 
+" indent
+let g:indentLine_faster = 1
 
 " insert mode jj bind esc
 inoremap <silent> jj <ESC>
